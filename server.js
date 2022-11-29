@@ -5,10 +5,14 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
-// app.use(express.static(path.join(__dirname, 'public')));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(routes);
+
+// app.get('/', (req, res) => {
+//     res.sendFile(path)
+// })
 
 app.listen(PORT, () => {
     console.log(`API server now running on PORT ${PORT}`);

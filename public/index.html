@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guest Greeter</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Guest Greeter</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Greet Your Guests!</h2>
+            <p>
+                Hello! Your guests are waiting to be greeted. Let's give them a proper
+                welcoming! You may select a pre-designed greeting for them, or create a
+                custom greeting for them using the form below.
+            </p>
+        </section>
+        <section>
+            <p>
+                Please select the guest you would like to greet from the menu below:
+            </p>
+            <select id="guest-list" name="guests"></select>
+            <p>
+                Please select the company you are working for from the menu below:
+            </p>
+            <select id="company-list" name="companies"></select>
+            <p>
+                Please choose one of the custom greetings for your guest from the menu below:
+            </p>
+            <select id="greeting-list" name="greetings"></select>
+        </section>
+        <section>
+            <h3>Your Current Greeting</h3>
+            <p id="display-greeting"></p>
+        </section>
+        <section>
+            <h3>Add A Greeting</h3>
+            <p>
+                You may also add a custom greeting of your choice to use at a later date. Please
+                enter in your custom greeting here:
+            </p>
+            <textarea id="custom-greeting"></textarea>
+            <button id="save-button">Save Greeting</button>
+        </section>
+    </main>
+
+</body>
+
+</html>
