@@ -3,7 +3,6 @@ const { guests } = require('../data/guests.json');
 
 //function to select a guests id
 function findById(id, guestsArray) {
-    console.log(id)
     const result = guestsArray.filter(guest => guest.id == id)[0];
     return result
 }
