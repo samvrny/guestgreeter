@@ -45,6 +45,10 @@ function populateCompanies() {
     })
 }
 
+function populateGreetings() {
+    //logic for greetings
+}
+
 //printing the guest list in the guest select option
 function printGuests(guests) {
     for(i=0; i < guests.length; i++) {
@@ -61,6 +65,10 @@ function printCompanies(company) {
         companyOption.textContent = company[i].company;
         companySelect.appendChild(companyOption);
     }
+}
+
+function printGreetings() {
+    //logic for greetings
 }
 
 populateGuests();
