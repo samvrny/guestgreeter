@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const { greetings } = require('../data/greetings.json');
+const fs = require('fs');
+const path = require('path');
 
 //function to select a greetings id
-function findById(id, greetingssArray) {
-    const result = greetingssArray.filter(greeting => greeting.id == id)[0];
+function findById(id, greetingsArray) {
+    const result = greetingsArray.filter(greeting => greeting.id == id)[0];
     return result
 }
 
@@ -13,6 +15,7 @@ router.get('/', (req, res) => {
     res.json(result);
 });
 
+//get a greeting by its ID
 router.get('/:id', (req, res) => {
     const result = findById(req.params.id, greetings);
     if(result) {
@@ -22,5 +25,22 @@ router.get('/:id', (req, res) => {
         console.log('Failure')
     }
 });
+
+//write a greeting to the JSON file
+function createNewGreeting(body, greetingsArray) {
+    const greeting = body;
+    console.log(greeting)
+    greetings.push(greeting)
+    let filePath = 'data/greetings.json'
+    let data = JSON.stringify(greetings)
+    fs.writeFileSync(filePath, data)
+}
+
+router.post('/', (req, res) => {
+    req.body.id = greetings.length;
+    //console.log(req.body)
+    const greeting = createNewGreeting(req.body, greetings)
+    res.json(greeting);
+})
 
 module.exports = router;
