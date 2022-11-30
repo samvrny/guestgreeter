@@ -14,13 +14,20 @@ class Guest {
 }
 
 class Company {
-    constructor() {
-        this.hotelName = variable
-        this.cityName = variable
-        this.timeZone = variable
+    constructor(company, city, timezone) {
+        this.hotelName = company
+        this.cityName = city
+        this.timeZone = timezone
     }
 }
 
+class Greeting {
+    constructor(greeting) {
+        this.message = greeting
+    }
+}
+
+//grabbing the id values of the selected options, and sending them to fetch data from them
 function readyPrinting() {
     let guestId = guestOptions.options[guestOptions.selectedIndex].id
     let companyId = companyOptions.options[companyOptions.selectedIndex].id
@@ -34,9 +41,11 @@ function readyPrinting() {
     }
 }
 
+//fetch requests to grab company, guest, and greeting data from the above ids
 function getValues(guestId, companyId, greetingId) {
 
-    fetch(`/guests/${guestId}`, {
+    //fetch the guests data
+    let fetchGuest = fetch(`/guests/${guestId}`, {
         method: 'GET',
         headers: {
             Accept: 'application/json',
@@ -50,14 +59,68 @@ function getValues(guestId, companyId, greetingId) {
             response.send(404)
         }
     })
-    .then(response => {
-        let guest = new Guest(
-            response.firstName,
-            response.lastName,
-            response.reservation.roomNumber
-        )
-        console.log(guest)
+
+    //fetch the company's data
+    let fetchCompany = fetch(`/company/${companyId}`, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
     })
+    .then(response => {
+        if(response.ok) {
+            return response.json()
+        } else {
+            response.send(404)
+        }
+    })
+
+    //fetch the greeting
+    let fetchGreeting = fetch(`/greeting/${greetingId}`, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if(response.ok) {
+            return response.json()
+        } else {
+            response.send(404)
+        }
+    })
+    
+    //compile all the fetched data 
+    const allData = Promise.all([ fetchGuest, fetchCompany, fetchGreeting ])
+    allData.then((res) => createObjects(res))
 }
 
+//create objects to handle data for message
+function createObjects(data) {
+    let guest = new Guest(
+        data[0].firstName,
+        data[0].lastName,
+        data[0].reservation.roomNumber
+    )
+
+    let company = new Company(
+        data[1].company,
+        data[1].city,
+        data[1].timezone
+    )
+
+    let greeting = new Greeting(
+        data[2].greeting
+    )
+
+    printGreeting(guest, company, greeting)
+}
+
+function printGreeting(guest, company, message) {
+    
+}
+
+//listen for the click on the generate message button, to generate your custom message!
 generateButton.addEventListener('click', readyPrinting)
