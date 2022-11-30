@@ -29,16 +29,14 @@ router.get('/:id', (req, res) => {
 //write a greeting to the JSON file
 function createNewGreeting(body, greetingsArray) {
     const greeting = body;
-    console.log(greeting)
-    greetings.push(greeting)
+    greetingsArray.push(greeting)
     let filePath = 'data/greetings.json'
-    let data = JSON.stringify(greetings)
+    let data = JSON.stringify(greetingsArray)
     fs.writeFileSync(filePath, data)
 }
 
 router.post('/', (req, res) => {
-    req.body.id = greetings.length;
-    //console.log(req.body)
+    req.body.id = greetings.length || 0;
     const greeting = createNewGreeting(req.body, greetings)
     res.json(greeting);
 })

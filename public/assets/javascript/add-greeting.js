@@ -1,13 +1,6 @@
 const customForm = document.getElementById('greeting-form');
 const customGreeting = document.getElementById('custom-greeting');
 
-//create a greeting object
-// class Greeting {
-//     constructor() {
-//         this.greeting = customGreeting.value;
-//     }
-// }
-
 function saveGreeting(greeting) {
     console.log(greeting)
     const greetingObject = { greeting }

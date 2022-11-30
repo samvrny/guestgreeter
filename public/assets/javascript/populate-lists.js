@@ -1,6 +1,7 @@
 //grabbing the select lists for guests, companies, and greetings by their ids
 const guestSelect = document.getElementById('guest-list')
 const companySelect = document.getElementById('company-list');
+const greetingSelect = document.getElementById('greeting-list');
 
 //fetching the guest list to populate the guest select list
 function populateGuests() {
@@ -47,7 +48,7 @@ function populateCompanies() {
 
 //fetching the greetings to populate the company select list
 function populateGreetings() {
-    fetch('/company', {
+    fetch('/greeting', {
         method: 'GET',
         headers: {
             Accept: 'application/json',
@@ -56,13 +57,13 @@ function populateGreetings() {
     })
     .then(response => {
         if(response.ok) {
-            return response.json();
+            //return response.json();
         } else {
             //display error onscreen
         }
     })
     .then(response => {
-        printCompanies(response)
+        printGreetings(response)
     })
 }
 
@@ -84,9 +85,14 @@ function printCompanies(company) {
     }
 }
 
-function printGreetings() {
-    //logic for greetings
+function printGreetings(greetings) {
+    for(i=0; i < greetings.length; i++) {
+        const greetingOption = document.createElement('option');
+        greetingOption.textContent = 'Custom Greeting' + ' ' + greetings[i].id++ ;
+        greetingSelect.appendChild(greetingOption);
+    }
 }
 
 populateGuests();
 populateCompanies();
+populateGreetings();

@@ -1,1 +1,5 @@
-[{"greeting":"RED","id":0},{"greeting":"YELLOW","id":1},{"greeting":"BLUE","id":2},{"greeting":"GREEN","id":3}]
+{
+    "greetings": [
+
+    ]
+}
