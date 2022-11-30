@@ -57,7 +57,7 @@ function populateGreetings() {
     })
     .then(response => {
         if(response.ok) {
-            //return response.json();
+            return response;
         } else {
             //display error onscreen
         }
@@ -88,6 +88,7 @@ function printCompanies(company) {
 function printGreetings(greetings) {
     for(i=0; i < greetings.length; i++) {
         const greetingOption = document.createElement('option');
+        //ask Reese about getting this number to switch
         greetingOption.textContent = 'Custom Greeting' + ' ' + greetings[i].id++ ;
         greetingSelect.appendChild(greetingOption);
     }

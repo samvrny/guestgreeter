@@ -31,7 +31,7 @@ function createNewGreeting(body, greetingsArray) {
     const greeting = body;
     greetingsArray.push(greeting)
     let filePath = 'data/greetings.json'
-    let data = JSON.stringify(greetingsArray)
+    let data = JSON.stringify({ greetings: greetingsArray })
     fs.writeFileSync(filePath, data)
 }
 
