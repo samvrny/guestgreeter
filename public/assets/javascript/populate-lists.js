@@ -45,8 +45,25 @@ function populateCompanies() {
     })
 }
 
+//fetching the greetings to populate the company select list
 function populateGreetings() {
-    //logic for greetings
+    fetch('/company', {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if(response.ok) {
+            return response.json();
+        } else {
+            //display error onscreen
+        }
+    })
+    .then(response => {
+        printCompanies(response)
+    })
 }
 
 //printing the guest list in the guest select option

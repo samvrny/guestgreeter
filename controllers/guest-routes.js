@@ -18,6 +18,7 @@ router.get('/:id', (req, res) => {
     if(result) {
         res.json(result)
     } else {
+        //send back a 404
         console.log('Failure')
     }
 });
