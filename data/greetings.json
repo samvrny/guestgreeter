@@ -1,1 +1,16 @@
-{"greetings":[{"greeting":"Greetings guest!","id":0},{"greeting":"Bread","id":1},{"greeting":"Hector","id":2},{"greeting":"Here is a fresh greeting, ready to be used","id":3},{"greeting":"And yet another one to add to the arsenal!","id":4},{"greeting":"Another test, coming it!","id":5},{"greeting":"Ye Have Le Custom Greetings","id":6},{"greeting":"Heres a custom greeting","id":7},{"greeting":"Oh no :(","id":8},{"greeting":"Newbs","id":9}]}
+{
+    "greetings": [
+        {
+            "greeting": "timeGreeting, firstName! Welcome to hotelName. Room roomNumber is now ready for you. Let us know if you need anything!",
+            "id": 0
+        },
+        {
+            "greeting": "timeGreeting, firstName lastName, and welcome to cityName! We are delighted to have you staying here with us at hotelName. Enjoy your stay, and please let us know if you need anything!",
+            "id": 1
+        },
+        {
+            "greeting": "timeGreeting, firstName. Room roomNumber is now available for you to check in at hotelName. We hope you enjoy your stay here in cityName, please let us know if there is anything specific we can provide for you.",
+            "id": 2
+        }
+    ]
+}
