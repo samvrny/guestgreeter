@@ -72,6 +72,7 @@ function printGuests(guests) {
     for(i=0; i < guests.length; i++) {
         const guestOption = document.createElement('option');
         guestOption.textContent = guests[i].firstName + ' ' + guests[i].lastName;
+        guestOption.setAttribute('id', guests[i].id)
         guestSelect.appendChild(guestOption);
     }
 }
@@ -81,6 +82,7 @@ function printCompanies(company) {
     for(i=0; i < company.length; i++) {
         const companyOption = document.createElement('option');
         companyOption.textContent = company[i].company;
+        companyOption.setAttribute('id', company[i].id)
         companySelect.appendChild(companyOption);
     }
 }
@@ -89,7 +91,8 @@ function printGreetings(greetings) {
     for(i=0; i < greetings.length; i++) {
         const greetingOption = document.createElement('option');
         //ask Reese about getting this number to switch
-        greetingOption.textContent = 'Custom Greeting' + ' ' + greetings[i].id++ ;
+        greetingOption.textContent = 'Custom Greeting' + ' ' + greetings[i].id;
+        greetingOption.setAttribute('id', greetings[i].id)
         greetingSelect.appendChild(greetingOption);
     }
 }
