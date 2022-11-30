@@ -2,6 +2,7 @@
 const guestOptions = document.getElementById('guest-list')
 const companyOptions = document.getElementById('company-list');
 const greetingOptions = document.getElementById('greeting-list');
+//button that captures the data from the options when clicked
 const generateButton = document.getElementById('generate-message');
 
 //guest and company classes to handle the new message with
@@ -23,7 +24,7 @@ class Company {
 
 class Greeting {
     constructor(greeting) {
-        this.message = greeting
+        this.greeting = greeting
     }
 }
 
@@ -32,8 +33,8 @@ function readyPrinting() {
     let guestId = guestOptions.options[guestOptions.selectedIndex].id
     let companyId = companyOptions.options[companyOptions.selectedIndex].id
     let greetingId = greetingOptions.options[greetingOptions.selectedIndex].id
-    
-    if(guestId && companyId && greetingId) {
+
+    if (guestId && companyId && greetingId) {
         getValues(guestId, companyId, greetingId)
     } else {
         //this is where an error message will live
@@ -52,13 +53,13 @@ function getValues(guestId, companyId, greetingId) {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => {
-        if(response.ok) {
-            return response.json()
-        } else {
-            response.send(404)
-        }
-    })
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            } else {
+                response.send(404)
+            }
+        })
 
     //fetch the company's data
     let fetchCompany = fetch(`/company/${companyId}`, {
@@ -68,13 +69,13 @@ function getValues(guestId, companyId, greetingId) {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => {
-        if(response.ok) {
-            return response.json()
-        } else {
-            response.send(404)
-        }
-    })
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            } else {
+                response.send(404)
+            }
+        })
 
     //fetch the greeting
     let fetchGreeting = fetch(`/greeting/${greetingId}`, {
@@ -84,16 +85,16 @@ function getValues(guestId, companyId, greetingId) {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => {
-        if(response.ok) {
-            return response.json()
-        } else {
-            response.send(404)
-        }
-    })
-    
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            } else {
+                response.send(404)
+            }
+        })
+
     //compile all the fetched data 
-    const allData = Promise.all([ fetchGuest, fetchCompany, fetchGreeting ])
+    const allData = Promise.all([fetchGuest, fetchCompany, fetchGreeting])
     allData.then((res) => createObjects(res))
 }
 
@@ -118,8 +119,21 @@ function createObjects(data) {
     printGreeting(guest, company, greeting)
 }
 
-function printGreeting(guest, company, message) {
-    
+function printGreeting(guest, company, greeting) {
+    console.log(guest, company, greeting)
+    const rawGreeting = greeting.greeting
+
+    const finalGreeting = rawGreeting
+        .replace('firstName', guest.firstName)
+        .replace('lastName', guest.lastName)
+        .replace('roomNumber', guest.roomNumber)
+        .replace('hotelName', company.hotelName)
+        .replace('cityName', company.cityName)
+
+    //element where the greeting will be displayed
+    const greetingDisplay = document.getElementById('display-greeting');
+    console.log(finalGreeting, greetingDisplay)
+    greetingDisplay.textContent = finalGreeting;
 }
 
 //listen for the click on the generate message button, to generate your custom message!
