@@ -57,7 +57,7 @@ function populateGreetings() {
     })
     .then(response => {
         if(response.ok) {
-            return response;
+            return response.json();
         } else {
             //display error onscreen
         }
