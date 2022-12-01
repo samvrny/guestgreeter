@@ -34,7 +34,7 @@ function createNewGreeting(body, greetingsArray) {
 }
 
 router.post('/', (req, res) => {
-    req.body.id = greetings.length || 0;
+    req.body.id = greetings.length + 1 || 1;
     const greeting = createNewGreeting(req.body, greetings)
     res.json(greeting);
 })
