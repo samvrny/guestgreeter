@@ -32,8 +32,12 @@ function saveGreeting(greeting) {
 //staging the new greeting and updating the greeting list
 function makeGreeting(event) {
     event.preventDefault()
+    if(customGreeting.value) {
     const greeting = customGreeting.value
     saveGreeting(greeting)
+    } else {
+        return;
+    }
 }
 
 customForm.addEventListener('submit', makeGreeting)

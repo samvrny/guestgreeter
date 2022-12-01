@@ -159,7 +159,7 @@ function printGreeting(guest, company, greeting) {
     //text the selected greeting to the screen
     greetingDisplay.textContent = finalGreeting;
 
-    //adding the for and hotel to the greeting
+    //adding the for which guest, and hotel to the greeting
     const guestName = document.getElementById('for')
     const hotelName = document.getElementById('hotel')
 
