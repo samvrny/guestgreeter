@@ -89,11 +89,6 @@ function printCompanies(company) {
 
 //print the list of greetings to the page
 function printGreetings(greetings) {
-    const firstOption = document.createElement('option');
-    firstOption.textContent = '--Choose an option--'
-    firstOption.setAttribute('disabled', true)
-    firstOption.setAttribute('selected', true)
-    greetingSelect.appendChild(firstOption)
     for(i=0; i < greetings.length; i++) {
         const greetingOption = document.createElement('option');
         greetingOption.textContent = 'Custom Greeting' + ' ' + greetings[i].id;

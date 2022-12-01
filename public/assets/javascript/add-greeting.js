@@ -13,18 +13,24 @@ function saveGreeting(greeting) {
         },
         body: JSON.stringify(greetingObject)
     })
-    .then(response => {
-        if(response.ok) {
-            console.log('Success!')
-        } else {
-            console.log('Something went wrong!')
-        }
-    })
+        .then(response => {
+            if (response.ok) {
+                console.log('Success!')
+            } else {
+                console.log('Something went wrong!')
+            }
+        })
 
     //get the child to select correctly
-    while(greetingOption.lastChild) {
+    while (greetingOption.lastChild) {
         greetingOption.removeChild(greetingOption.lastChild)
     }
+    //reprint the disables=d 'choose option' option selection to the greetings choice list before printing the greetings
+    const firstOption = document.createElement('option');
+    firstOption.textContent = '--Choose an option--'
+    firstOption.setAttribute('disabled', true)
+    firstOption.setAttribute('selected', true)
+    greetingSelect.appendChild(firstOption)
     //call to repopulate greetings list with new data
     populateGreetings()
 }
@@ -32,9 +38,9 @@ function saveGreeting(greeting) {
 //staging the new greeting and updating the greeting list
 function makeGreeting(event) {
     event.preventDefault()
-    if(customGreeting.value) {
-    const greeting = customGreeting.value
-    saveGreeting(greeting)
+    if (customGreeting.value) {
+        const greeting = customGreeting.value
+        saveGreeting(greeting)
     } else {
         return;
     }

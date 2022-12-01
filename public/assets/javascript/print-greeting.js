@@ -39,7 +39,7 @@ function readyPrinting() {
     } else {
         //this is where an error message will live
         const greetingDisplay = document.getElementById('display-greeting');
-        greetingDisplay.textContent = 'Please select a guest, a company, and a custom messge'
+        greetingDisplay.textContent = 'Please select a guest, a company, and a custom messge from the above menus'
     }
 }
 
