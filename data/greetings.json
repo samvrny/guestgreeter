@@ -13,7 +13,7 @@
             "id": 3
         },
         {
-            "greeting": "timeGreeting, firstName! We are so excited to have you here in cityName. It is truly beautiful here this time of year. Your room, roomNumber, is all set for you at hotelName! You may check in whenever you like. Please enjoy your stay, and let us know if there is anything specific we can do for you as you explore cityName.",
+            "greeting": "timeGreeting, firstName! We are so excited to have you here in cityName. It is truly beautiful here this time of year. Your room, roomNumber, is all set for you at hotelName! You may check in whenever you like. Please enjoy your stay, and let us know if there is anything specific we can do for you.",
             "id": 4
         }
     ]
