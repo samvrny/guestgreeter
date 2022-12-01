@@ -41,6 +41,7 @@ function makeGreeting(event) {
     if (customGreeting.value) {
         const greeting = customGreeting.value
         saveGreeting(greeting)
+        customGreeting.value = ''
     } else {
         return;
     }

@@ -147,12 +147,12 @@ function printGreeting(guest, company, greeting) {
     const rawGreeting = greeting.greeting
 
     const finalGreeting = rawGreeting
-        .replace('firstName', guest.firstName)
-        .replace('lastName', guest.lastName)
-        .replace('roomNumber', guest.roomNumber)
-        .replace('hotelName', company.hotelName)
-        .replace('cityName', company.cityName)
-        .replace('timeGreeting', timeGreeting)
+        .replaceAll('firstName', guest.firstName)
+        .replaceAll('lastName', guest.lastName)
+        .replaceAll('roomNumber', guest.roomNumber)
+        .replaceAll('hotelName', company.hotelName)
+        .replaceAll('cityName', company.cityName)
+        .replaceAll('timeGreeting', timeGreeting)
 
     //element where the greeting will be displayed
     const greetingDisplay = document.getElementById('display-greeting');
