@@ -1,16 +1,1 @@
-{
-    "greetings": [
-        {
-            "greeting": "timeGreeting, firstName! Welcome to hotelName. Room roomNumber is now ready for you. Let us know if you need anything!",
-            "id": 0
-        },
-        {
-            "greeting": "timeGreeting, firstName lastName, and welcome to cityName! We are delighted to have you staying here with us at hotelName. Enjoy your stay, and please let us know if you need anything!",
-            "id": 1
-        },
-        {
-            "greeting": "timeGreeting, firstName. Room roomNumber is now available for you to check in at hotelName. We hope you enjoy your stay here in cityName, please let us know if there is anything specific we can provide for you.",
-            "id": 2
-        }
-    ]
-}
+{"greetings":[{"greeting":"timeGreeting, firstName! Welcome to hotelName. Room roomNumber is now ready for you. Let us know if you need anything!","id":0},{"greeting":"timeGreeting, firstName lastName, and welcome to cityName! We are delighted to have you staying here with us at hotelName. Enjoy your stay, and please let us know if you need anything!","id":1},{"greeting":"timeGreeting, firstName. Room roomNumber is now available for you to check in at hotelName. We hope you enjoy your stay here in cityName, please let us know if there is anything specific we can provide for you.","id":2},{"greeting":"Hello, valued customer! Welcome to your stay! Hope you have a great time, let us know if you need anything!","id":3},{"greeting":"Adding a new greeting can be tough. Does this seem like a good one?","id":4},{"greeting":"Hello, firstName, welcome to the hotelName! cityName is really beautiful this time of year, we hope you will enjoy your stay in roomNumber! Please reach out and let the staff know if you need anything.","id":5}]}

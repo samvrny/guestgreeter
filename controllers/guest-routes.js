@@ -10,16 +10,20 @@ function findById(id, guestsArray) {
 //get all guests from the database
 router.get('/', (req, res) => {
     const result = guests;
+    if(result) {
     res.json(result);
+    } else {
+        res.send(404)
+    }
 });
 
+//get a guest by it's id
 router.get('/:id', (req, res) => {
     const result = findById(req.params.id, guests);
     if(result) {
         res.json(result)
     } else {
-        //send back a 404
-        console.log('Failure')
+        res.send(404)
     }
 });
 

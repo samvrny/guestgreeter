@@ -87,10 +87,10 @@ function printCompanies(company) {
     }
 }
 
+//print the list of greetings to the page
 function printGreetings(greetings) {
     for(i=0; i < greetings.length; i++) {
         const greetingOption = document.createElement('option');
-        //ask Reese about getting this number to switch
         greetingOption.textContent = 'Custom Greeting' + ' ' + greetings[i].id;
         greetingOption.setAttribute('id', greetings[i].id)
         greetingSelect.appendChild(greetingOption);

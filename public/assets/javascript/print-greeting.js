@@ -5,7 +5,7 @@ const greetingOptions = document.getElementById('greeting-list');
 //button that captures the data from the options when clicked
 const generateButton = document.getElementById('generate-message');
 
-//guest and company classes to handle the new message with
+//guest, greeting and company classes to handle the new message with
 class Guest {
     constructor(firstName, lastName, roomNumber) {
         this.firstName = firstName
@@ -119,20 +119,17 @@ function createObjects(data) {
     printGreeting(guest, company, greeting)
 }
 
+//print the greeting to the page
 function printGreeting(guest, company, greeting) {
-    console.log(guest, company, greeting)
     let date = moment();
 
     //setting the correct timezone for a greeting, and setting to proper greeting based on time
     if(company.timeZone === "US/Pacific") {
         date = moment().subtract(4, 'h').format('k')
-        // console.log(date)
     } else if(company.timeZone === "US/Central") {
         date = moment().format('k')
-        // console.log(date)
     } else if(company.timeZone === "US/Eastern") {
         date = moment().add(2, 'h').format('k')
-        // console.log(date)
     }
 
     //setting the greeting to be specific to the time
@@ -141,8 +138,7 @@ function printGreeting(guest, company, greeting) {
         timeGreeting = 'Good morning'
     } else if(parseInt(date) >= 12 && parseInt(date) <= 17 ) {
         timeGreeting = 'Good Afternoon'
-    }
-    else {
+    } else {
         timeGreeting = 'Good evening'
     } 
 

@@ -10,9 +10,14 @@ function findById(id, companiesArray) {
 //get all companies from the database
 router.get('/', (req, res) => {
     const result = companies;
+    if(result) {
     res.json(result);
+    } else {
+        res.send(404);
+    }
 });
 
+//get a company by it's id
 router.get('/:id', (req, res) => {
     const result = findById(req.params.id, companies);
     if(result) {

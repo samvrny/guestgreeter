@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { greetings } = require('../data/greetings.json');
 const fs = require('fs');
-const path = require('path');
 
 //function to select a greetings id
 function findById(id, greetingsArray) {
@@ -21,8 +20,7 @@ router.get('/:id', (req, res) => {
     if(result) {
         res.json(result)
     } else {
-        //send back a 404
-        console.log('Failure')
+        res.send(404)
     }
 });
 
