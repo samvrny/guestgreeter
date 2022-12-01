@@ -42,7 +42,12 @@ textarea {
 select {
     padding: 5px;
     border-radius: 5px;
-    border: 3px solid #0a2463
+    border: 3px solid #0a2463;
+    font-weight: 600;
+}
+
+select:hover {
+    cursor: pointer;
 }
 
 button {
@@ -51,6 +56,13 @@ button {
     font-weight: 600;
     border: 3px solid #0a2463;
     font-size: 15px;
+}
+
+button:hover {
+    background-color: #0a2463;
+    color: #e2e2e2;
+    border: 3px solid #247BA0;
+    cursor: pointer;
 }
 
 .welcome h2, .current-greeting h3, .add-greeting h3 {
