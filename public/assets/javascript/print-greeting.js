@@ -38,7 +38,8 @@ function readyPrinting() {
         getValues(guestId, companyId, greetingId)
     } else {
         //this is where an error message will live
-        console.log('You must select all of your options')
+        const greetingDisplay = document.getElementById('display-greeting');
+        greetingDisplay.textContent = 'Please select a guest, a company, and a custom messge'
     }
 }
 
@@ -157,6 +158,13 @@ function printGreeting(guest, company, greeting) {
     const greetingDisplay = document.getElementById('display-greeting');
     //text the selected greeting to the screen
     greetingDisplay.textContent = finalGreeting;
+
+    //adding the for and hotel to the greeting
+    const guestName = document.getElementById('for')
+    const hotelName = document.getElementById('hotel')
+
+    guestName.textContent = 'Customer Name: ' + guest.firstName + ' ' + guest.lastName;
+    hotelName.textContent = 'Hotel: ' + company.hotelName;
 }
 
 //listen for the click on the generate message button, to generate your custom message!

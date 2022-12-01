@@ -16,7 +16,7 @@
     </header>
 
     <main>
-        <section>
+        <section class="flex welcome">
             <h2>Greet Your Guests!</h2>
             <p>
                 Hello! Your guests are waiting to be greeted. Let's give them a proper
@@ -24,36 +24,37 @@
                 custom greeting for them using the form below.
             </p>
         </section>
-        <section>
+        <section class="flex pick-greeting">
             <p>
-                Please select the guest you would like to greet from the menu below:
+                Please select the guest, company, and greeting template you would like to
+                use from the menus below:
             </p>
-            <select id="guest-list" name="guests">
-                <option disabled selected>--Choose an option--</option>
-            </select>
-            <p>
-                Please select the company you are working for from the menu below:
-            </p>
-            <select id="company-list" name="companies">
-                <option disabled selected>--Choose an option--</option>
-            </select>
-            <p>
-                Please choose one of the custom greetings for your guest from the menu below:
-            </p>
-            <select id="greeting-list" name="greetings">
-                <option disabled selected>--Choose an option--</option>
-            </select>
-            <button id="generate-message">Generate Message</button>
+            <div>
+                <select id="guest-list" name="guests">
+                    <option disabled selected>--Choose an option--</option>
+                </select>
+                <select id="company-list" name="companies">
+                    <option disabled selected>--Choose an option--</option>
+                </select>
+                <select id="greeting-list" name="greetings">
+                    <option disabled selected id="permanant-option">--Choose an option--</option>
+                </select>
+                <button id="generate-message">Generate Message</button>
+            </div>
             <script src="./assets/javascript/populate-lists.js"></script>
             <script src="./assets/javascript/print-greeting.js"></script>
         </section>
-        <section>
+        <section class="flex current-greeting">
             <h3>Your Current Greeting</h3>
-            <p id="display-greeting"></p>
+            <div class="names">
+                <p id="for"></p>
+                <p id="hotel"></p>
+            </div>
+            <p id="display-greeting" class="display-greeting"></p>
         </section>
-        <section>
+        <section class="flex add-greeting">
             <h3>Add A Greeting</h3>
-            <form id="greeting-form">
+            <form id="greeting-form" class="flex">
                 <p>
                     You may also add a custom greeting of your choice to use at a later date. Please
                     enter in your custom greeting here:
@@ -63,6 +64,7 @@
             </form>
             <script src="./assets/javascript/add-greeting.js"></script>
         </section>
+        <footer></footer>
     </main>
 </body>
 

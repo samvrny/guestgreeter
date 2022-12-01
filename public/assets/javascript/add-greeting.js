@@ -20,17 +20,18 @@ function saveGreeting(greeting) {
             console.log('Something went wrong!')
         }
     })
+
+    //get the child to select correctly
+    while(greetingOption.lastChild) {
+        greetingOption.removeChild(greetingOption.lastChild)
+    }
+    //call to repopulate greetings list with new data
+    populateGreetings()
 }
 
 //staging the new greeting and updating the greeting list
 function makeGreeting(event) {
     event.preventDefault()
-    //get the child to select correctly
-    while(greetingOption.firstChild) {
-        greetingOption.removeChild(greetingOption.firstChild)
-    }
-    //call to repopulate greetings list with new data
-    populateGreetings()
     const greeting = customGreeting.value
     saveGreeting(greeting)
 }
