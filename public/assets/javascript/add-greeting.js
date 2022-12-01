@@ -29,6 +29,7 @@ function makeGreeting(event) {
     while(greetingOption.firstChild) {
         greetingOption.removeChild(greetingOption.firstChild)
     }
+    //call to repopulate greetings list with new data
     populateGreetings()
     const greeting = customGreeting.value
     saveGreeting(greeting)

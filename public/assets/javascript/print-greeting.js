@@ -121,6 +121,32 @@ function createObjects(data) {
 
 function printGreeting(guest, company, greeting) {
     console.log(guest, company, greeting)
+    let date = moment();
+
+    //setting the correct timezone for a greeting, and setting to proper greeting based on time
+    if(company.timeZone === "US/Pacific") {
+        date = moment().subtract(4, 'h').format('k')
+        // console.log(date)
+    } else if(company.timeZone === "US/Central") {
+        date = moment().format('k')
+        // console.log(date)
+    } else if(company.timeZone === "US/Eastern") {
+        date = moment().add(2, 'h').format('k')
+        // console.log(date)
+    }
+
+    //setting the greeting to be specific to the time
+    let timeGreeting = 'Hello'
+    if(parseInt(date) >= 1 && parseInt(date) < 12) {
+        timeGreeting = 'Good morning'
+    } else if(parseInt(date) >= 12 && parseInt(date) <= 17 ) {
+        timeGreeting = 'Good Afternoon'
+    }
+    else {
+        timeGreeting = 'Good evening'
+    } 
+
+    //grabbing the template to be made into a custom greeting
     const rawGreeting = greeting.greeting
 
     const finalGreeting = rawGreeting
@@ -129,10 +155,11 @@ function printGreeting(guest, company, greeting) {
         .replace('roomNumber', guest.roomNumber)
         .replace('hotelName', company.hotelName)
         .replace('cityName', company.cityName)
+        .replace('timeGreeting', timeGreeting)
 
     //element where the greeting will be displayed
     const greetingDisplay = document.getElementById('display-greeting');
-    console.log(finalGreeting, greetingDisplay)
+    //text the selected greeting to the screen
     greetingDisplay.textContent = finalGreeting;
 }
 
