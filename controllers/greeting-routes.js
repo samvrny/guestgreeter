@@ -11,7 +11,11 @@ function findById(id, greetingsArray) {
 //get all greetings from the database
 router.get('/', (req, res) => {
     const result = greetings;
+    if(result) {
     res.json(result);
+    } else {
+        res.send(404)
+    }
 });
 
 //get a greeting by its ID
