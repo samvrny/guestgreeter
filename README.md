@@ -38,7 +38,9 @@ server because it pairs great with Node, which in turn pairs amazingly with Java
 I can think of two main things right away that I would add to this project given more time, and given it was meant to be a larger application. One, I have already eluded too above which
 is spending more time with the style and user interface. I would like to spend more time with this not only because it is enjoyable, but because the user experience is top of the line and 
 if the users aren't interested in, wowed by, or worse yet upset with the experience with an application, they aren't likely to come back. The second thing that comes to mind right away is
-setting up a "real" back-end with MongoDB or MySQL, to eliminate the need to store so much data into a JSON file, which can get out of hand quickly. 
+setting up a "real" back-end with MongoDB or MySQL, to eliminate the need to store so much data into a JSON file, which can get out of hand quickly. The last thing I would definitely add 
+with more time is incredibly important, though it was last on my list: testing. We learned to use Jest in our bootcamp, and that is is an important part of writing clean and maintainable code. 
+Aside from my 1999 style choice, it is definitely the thing I was most keenly aware of needing to update if the application were to undergo future development.
 
 ## Contributing
 Made by Samuel Varney, with starter files from an 'annoymous' source.
